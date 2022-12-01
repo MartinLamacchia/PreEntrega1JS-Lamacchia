@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grid_container">
+        <header>
+            <h1>Tienda Connection</h1>
+        </header>
+        <main>
+            <section class="menu">
+                <a href="#menu_descuentos">Descuentos</a>
+                <a href="#menu_lista">Lista de Compras</a>
+                <a href="#menu_sorteo">Sorteos</a>
+                <a href="#menu_comprar">Comprar Producto</a>
+            </section>
+            <section class="menu_descuentos" id="menu_descuentos">
+                    <h2>DESCUENTOS</h2>
+                <div class="menu_descuentos-botones">
+                    <button>REMERA</button>
+                    <button>PANTALON</button>
+                    <button>BUZO</button>
+                    <button>CAMPERA</button>
+                </div>
+                <input type="number" placeholder="Indique el monto a pagar">
+                <button>Calcular Descuento</button>
+            </section>
+            <section class="menu_lista" id="menu_lista">
+                <h2>LISTA DE COMPRAS</h2>
+                <input type="text" placeholder="Ingrese el producto">
+                <input type="text" placeholder="Ingrese la cantidad">
+                <button>Agregar Producto</button>
+            </section>
+            <section class="menu_sorteo" id="menu_sorteo">
+                <h2>SORTEOS</h2>
+                <div class="menu_sorteo-idioma">
+                    <button>Ingles</button>
+                    <button>Español</button>
+                </div>
+                <input type="text" placeholder="Indica donde Vives">
+                <input type="text" placeholder="¿Cual es tu marca favorita?">
+                <button>Enviar</button>
+            </section>
+            <section class="menu_comprar" id="menu_comprar">
+                <h2>COMPRAR PRODUCTO</h2>
+                <div class="menu_comprar-lista">
+                    <ul>
+                        <li>Televisor de 32"</li>
+                        <li>Computadora Samsung</li>
+                        <li>Computadora Lenovo</li>
+                        <li>Computadora MAC</li>
+                        <li>Aire Acondicionado</li>
+                        <li>Lavarropas</li>
+                    </ul>
+                </div>
+                <input type="text" placeholder="Indica el producto que quiere">
+                <input type="text" placeholder="Indica en cuantas cuotas">
+                <button>Calcular</button>
+            </section>
+        </main>
+        <footer>
+            <p>&copy;<a href="https://github.com/MartinLamacchia" target="_blank">Pagina creada por Martin Lamacchia</a></p>
+        </footer>
+    </div>
+    <script src="./js/scrip.js"></script>
+</body>
+
+</html>

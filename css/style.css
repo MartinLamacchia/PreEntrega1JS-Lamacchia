@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    list-style: none;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    gap: 0em 0em;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+}
+
+/* HEADER */
+
+header {
+    grid-area: header;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN */
+
+main {
+    grid-area: main;
+    margin-bottom: 1rem;
+}
+
+/* MENU */
+
+.menu {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url(../img/img-fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    transition: all 300ms ease;
+}
+
+.menu a:hover {
+    transform: scale(1.1);
+    color: blueviolet;
+}
+
+/* DESCUENTOS */
+
+.menu_descuentos {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu_descuentos h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu_descuentos-botones {
+    width: 70%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu_descuentos-botones button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+}
+
+.menu_descuentos input {
+    width: 30%;
+    margin: 1rem 0;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+
+.menu_descuentos>button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(211, 43, 226);
+    color: white;
+    border: none;
+}
+
+/* LISTA */
+
+.menu_lista {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu_lista h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu_lista input {
+    width: 30%;
+    margin: 1rem 0;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+
+.menu_lista button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(211, 43, 226);
+    color: white;
+    border: none;
+}
+
+/* SORTEO */
+
+.menu_sorteo {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu_sorteo h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu_sorteo-idioma button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(211, 43, 226);
+    color: white;
+    border: none;
+}
+
+.menu_sorteo input {
+    width: 30%;
+    margin: 1rem 0;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+
+.menu_sorteo button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(211, 43, 226);
+    color: white;
+    border: none;
+}
+
+/* COMPRAR PRODUCTO */
+
+.menu_comprar {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu_comprar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu_comprar input{
+    width: 30%;
+    margin: 1rem 0;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+
+.menu_comprar button{
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(211, 43, 226);
+    color: white;
+    border: none;
+}
+
+/* FOOTER */
+
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+
+}
+
+footer p{
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    transition: all 300ms;
+}
+
+footer a{
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    transition: all 300ms;
+}
+
+footer p:hover{
+    transform: scale(1.3);
+}
+
+footer a:hover{
+    transform: scale(1.3);
+}
