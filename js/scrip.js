@@ -58,6 +58,12 @@ while (programas_usuario.toLocaleLowerCase() != "salir") {
                     this.cantidad = cantidad;
                 }
 
+                get_datos() {
+                    console.log("Producto: ", this.nombre);
+                    console.log("Cantidad: ", this.cantidad);
+                    console.log(" ");
+                }
+
 
             }
 
@@ -76,7 +82,7 @@ while (programas_usuario.toLocaleLowerCase() != "salir") {
 
             for (let producto of producto_consumidor) {
 
-                console.log(producto.nombre, producto.cantidad);
+                producto.get_datos();
 
             };
 
@@ -114,128 +120,128 @@ while (programas_usuario.toLocaleLowerCase() != "salir") {
     while (programas_usuario == 4 || programas_usuario.toLocaleLowerCase() == "compras" || programas_usuario.toLocaleLowerCase() == "compra" || programas_usuario.toLocaleLowerCase() == "comprar" || programas_usuario.toLocaleLowerCase() == "comprar producto" && (programas_usuario.toLocaleLowerCase() != "salir")) {
 
         //INCLUYE PRODUCTOS AL ARRAY
-        class Productos {
+        class Producto {
+
             constructor(producto, precio) {
+
                 this.producto = producto;
                 this.precio = precio;
+
+            }
+
+            get_datos() {
+
+                console.log("Producto: ", this.producto);
+                console.log("Precio: ", this.precio);
+                console.log("");
+
             }
         }
 
         // FUNCION PARA CALCULAR EL IVA DEL PRODUCTO DE UNA LISTA DE PRODUCTOS
-        function calcular_iva(producto_elegido) {
-            return producto_elegido = producto_elegido + (producto_elegido * 0.21);
+        function calcular_iva(productoSeleccionadoPrecio) {
+            return productoSeleccionadoPrecio = productoSeleccionadoPrecio + (productoSeleccionadoPrecio * 0.21);
         }
 
         // FUNCION PARA CALCULAR LAS CUOTAS DEL PRODUCTO DE UNA LISTA DE PRODUCTOS
-        function calcular_cuotas(producto_elegido, cuotas) {
+        function calcular_cuotas(productoSeleccionadoPrecio, cuotas) {
 
             if (cuotas == 3) {
-                return cuotas = producto_elegido + (producto_elegido * 0.07);
+                return cuotas = productoSeleccionadoPrecio + (productoSeleccionadoPrecio * 0.07);
             } else if (cuotas == 6) {
-                return cuotas = producto_elegido + (producto_elegido * 0.14);
+                return cuotas = productoSeleccionadoPrecio + (productoSeleccionadoPrecio * 0.14);
             } else if (cuotas == 9) {
-                return cuotas = producto_elegido + (producto_elegido * 0.19);
+                return cuotas = productoSeleccionadoPrecio + (productoSeleccionadoPrecio * 0.19);
             } else if (cuotas == 12) {
-                return cuotas = producto_elegido + (producto_elegido * 0.25);
+                return cuotas = productoSeleccionadoPrecio + (productoSeleccionadoPrecio * 0.25);
             } else if (cuotas == 0) {
-                return cuotas = producto_elegido;
+                return cuotas = productoSeleccionadoPrecio;
             } else {
                 alert("Las cuotas elegidas no estan en el sistema");
             }
 
         }
 
-        let productos = [
-            { producto: "televisor_32", precio: 49500 },
-            { producto: "computadora_sam", precio: 98000 },
-            { producto: "computadora_len", precio: 100000 },
-            { producto: "computadora_mac", precio: 150000 },
-            { producto: "aire_acondicionado", precio: 80000 },
-            { producto: "lavarropas", precio: 60000 },
-        ]
-
+        let lista_productos = [
+            {
+                producto: "Televisor",
+                precio: 49500,
+            },
+            {
+                producto: "Computadora Samsung",
+                precio: 98000,
+            },
+            {
+                producto: "Computadora Lenovo",
+                precio: 100000,
+            },
+            {
+                producto: "Computadora MAC",
+                precio: 150000,
+            },
+            {
+                producto: "Aire Acondicionado",
+                precio: 80000,
+            },
+            {
+                producto: "Lavarropas",
+                precio: 60000,
+            },
+        ];
+        
+        
         let producto_compra = prompt("Si quiere ver la lista de comprar ingrese LISTA\n Si quiere ingresar un nuevo producto ingrese NUEVO\n Si desea comprar un producto ingrese COMPRAR\n Si quiere salir indique SALIR");
-
+        
         do {
 
+
             while (producto_compra.toLocaleLowerCase() == "lista") {
-                alert("LISTA DE PRODUCTOS\n 1.TELEVISOR 32\"\n 2.COMPUTADORA SAMSUNG\n 3.COMPUTADORA LENOVO\n 4.COMPUTADORA MAC\n 5.AIRE ACONDICIONADO\n 6.LAVARROPAS");
+        
+        
+                for (let producto of lista_productos) {
+        
+                    console.log("Producto: ", producto.producto, "\nPrecio: ", producto.precio, "\n ");
+        
+                }
+        
                 producto_compra = prompt("Si quiere ver la lista de comprar ingrese LISTA\n Si quiere ingresar un nuevo producto ingrese NUEVO\n Si desea comprar un producto ingrese COMPRAR\n Si quiere salir indique SALIR");
+        
             }
-
+        
             while (producto_compra.toLocaleLowerCase() == "nuevo") {
-
-                let productos_venta = prompt("Ingrese el producto que desea agregar al listado");
-                let precios_venta = parseFloat(prompt("Ingrese el precio del producto"));
-
-                let nuevos_productos = new Productos(productos_venta, precios_venta);
-                productos.push(nuevos_productos);
-                console.log(productos);
-
+        
+                let producto = prompt("Ingrese un nuevo producto al listado");
+                let precio = parseInt(prompt("Ingrese el precio del producto"))
+        
+                let nuevo_producto = new Producto(producto, precio);
+                lista_productos.push(nuevo_producto);
+        
                 producto_compra = prompt("Si quiere ver la lista de comprar ingrese LISTA\n Si quiere ingresar un nuevo producto ingrese NUEVO\n Si desea comprar un producto ingrese COMPRAR\n Si quiere salir indique SALIR");
                 break;
+        
             }
-
+        
             while (producto_compra.toLocaleLowerCase() == "comprar") {
-                let producto_elegido = prompt("¿Cual es el producto que quiere comprar?\n \"INDIQUE EL NUMERO DEL PRODUCTO\"\n El numero de producto lo puede encontrar en la \"LISTA\"");
-                let precio;
-
-                if (producto_elegido == 1) {
-                    alert(nombre_usuario + " el producto que quiere comprar es un televisor de 32\"");
-                    producto_elegido = "televisor_32";
-                    precio = 49500;
-                } else if (producto_elegido == 2) {
-                    alert(nombre_usuario + " el producto que quiere comprar es una computadora Samsung");
-                    producto_elegido = "computadora_sam";
-                    precio = 98000;
-                } else if (producto_elegido == 3) {
-                    alert(nombre_usuario + " el producto que quiere comprar es una computadora Lenovo");
-                    producto_elegido = "computadora_len";
-                    precio = 100000;
-                } else if (producto_elegido == 4) {
-                    alert(nombre_usuario + " el producto que quiere comprar es una computadora MAC");
-                    producto_elegido = "computadora_mac";
-                    precio = 150000;
-                } else if (producto_elegido == 5) {
-                    alert(nombre_usuario + " el producto que quiere comprar es una computadora Aire Acondicionado");
-                    producto_elegido = "aire_acondicionado";
-                    precio = 80000;
-                } else if (producto_elegido == 6) {
-                    alert(nombre_usuario + " el producto que quiere comprar es una computadora Lavarropas");
-                    producto_elegido = "lavarropas";
-                    precio = 60000;
-                } else {
-                    break;
-                }
-
-                calcular_iva(precio);
-
+        
+        
+                let producto_elegido = prompt("¿Cual es el producto del listado que quiere comprar?");
+        
+                let productoSeleccionado = lista_productos.find((producto) => producto.producto == producto_elegido);
+        
+                let productoSeleccionadoPrecio = productoSeleccionado.precio
+        
                 let cuotas = prompt("¿Quiere pagar en cuotas? \n Puede elegir pagar en 3 - 6 - 9 - 12 cuotas con interes");
-
-                calcular_cuotas(precio, cuotas);
-
-                if (producto_elegido == "televisor_32") {
-                    alert(nombre_usuario + " el televisor de 32\" cuesta $" + precio + "\nInclyuendo el IVA el televisor le quedaria en $" + (calcular_iva(precio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(precio, cuotas) + calcular_iva(precio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(precio, cuotas) + calcular_iva(precio)) / cuotas));
-                } else if (producto_elegido == "computadora_sam") {
-                    alert(nombre_usuario + " la computadora Samsung cuesta $" + precio + "\nInclyuendo el IVA el televisor le quedaria en $" + (calcular_iva(precio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(precio, cuotas) + calcular_iva(precio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(precio, cuotas) + calcular_iva(precio)) / cuotas));
-                } else if (producto_elegido == "computadora_len") {
-                    alert(nombre_usuario + " la computadora Lenovo cuesta $" + precio + "\nInclyuendo el IVA el televisor le quedaria en $" + (calcular_iva(precio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(precio, cuotas) + calcular_iva(precio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(precio, cuotas) + calcular_iva(precio)) / cuotas));
-                } else if (producto_elegido == "computadora_mac") {
-                    alert(nombre_usuario + " la computadora MAC cuesta $" + precio + "\nInclyuendo el IVA el televisor le quedaria en $" + (calcular_iva(precio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(precio, cuotas) + calcular_iva(precio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(precio, cuotas) + calcular_iva(precio)) / cuotas));
-                } else if (producto_elegido == "aire_acondicionado") {
-                    alert(nombre_usuario + " el aire acondicionado cuesta $" + precio + "\nInclyuendo el IVA el televisor le quedaria en $" + (calcular_iva(precio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(precio, cuotas) + calcular_iva(precio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(precio, cuotas) + calcular_iva(precio)) / cuotas));
-                } else if (producto_elegido == "lavarropas") {
-                    alert(nombre_usuario + " el lavarropas cuesta $" + precio + "\nInclyuendo el IVA el televisor le quedaria en $" + (calcular_iva(precio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(precio, cuotas) + calcular_iva(precio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(precio, cuotas) + calcular_iva(precio)) / cuotas));
-                }
-
+        
+                alert(nombre_usuario + " el " + productoSeleccionado.producto + " cuesta $" + productoSeleccionadoPrecio + "\nInclyuendo el IVA le quedaria en $" + (calcular_iva(productoSeleccionadoPrecio)) + "\nPagando en " + cuotas + " cuotas el costo total del producto es $" + (calcular_cuotas(productoSeleccionadoPrecio, cuotas) + calcular_iva(productoSeleccionadoPrecio)) + "\nEl total por que debera pagar por mes es $" + ((calcular_cuotas(productoSeleccionadoPrecio, cuotas) + calcular_iva(productoSeleccionadoPrecio)) / cuotas));
+        
                 producto_compra = prompt("Si quiere ver la lista de comprar ingrese LISTA\n Si quiere ingresar un nuevo producto ingrese NUEVO\n Si desea comprar un producto ingrese COMPRAR\n Si quiere salir indique SALIR");
-
+        
             }
-
+        
         } while (producto_compra.toLocaleLowerCase() == "lista" || producto_compra.toLocaleLowerCase() == "nuevo" || producto_compra.toLocaleLowerCase() == "comprar");
-
+        
         programas_usuario = prompt("¿Desea seguir utilizando el programa? \n1)Descuentos \n2)Lista de Compras \n3)Sorteos \n4)Comprar Producto \n\nSi quiere salir del programa Comprar Producto ingresar \n\"SALIR\"");
-
+        
     }
 
     programas_usuario = prompt("¿Desea seguir utilizando el programa? \n1)Descuentos \n2)Lista de Compras \n3)Sorteos \n4)Comprar Producto \n\nSi quiere salir del programa ingresar \n\"SALIR\"");
